@@ -114,6 +114,8 @@ MonoBehaviour:
   terrainDamage: 5
   damageCoolDownTime: 2
   damageCoolingDown: 0
+  rocketBurstLength: 8
+  rocketFireRate: 0.1
   rocketCoolDownTime: 1
   rocketSpeed: 15
   rocketDestroyAfter: 3

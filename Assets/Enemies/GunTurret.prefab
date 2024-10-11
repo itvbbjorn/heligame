@@ -132,6 +132,10 @@ MonoBehaviour:
   bulletSpeed: 10
   rotationSpeed: 5
   bulletDestroyAfter: 3
+  fireRate: 0.1
+  delayBetweenBursts: 3
+  shotDirectionVariation: 5
+  burstLength: 3
   bulletDamage: 1
 --- !u!58 &688288925369080692
 CircleCollider2D:

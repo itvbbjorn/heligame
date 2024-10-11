@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,10 +18,13 @@ public class PlayerController : MonoBehaviour
     public int terrainDamage = 5;
     public float damageCoolDownTime = 2.0f;
     public bool damageCoolingDown = false;
+    public int rocketBurstLength = 8;
+    public float rocketFireRate = 0.3f;
     public float rocketCoolDownTime = 1.0f;
     public float rocketSpeed = 15.0f;
     public float rocketDestroyAfter = 3.0f;
     public int rocketDamage = 50;
+    public float rocketOffset = 0.3f;
     private Rigidbody2D rb;
     private Collider2D playerCollider;
     private PlayerHealth healthComponent;
@@ -81,12 +85,12 @@ public class PlayerController : MonoBehaviour
         // Fire bullet when spacebar or left mouse button is pressed
         if (!gunCoolingDown && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
-            StartCoroutine(FireBurst());
+            StartCoroutine(GunBurst());
             StartCoroutine(StartGunCoolDown());
         }
         if (!rocketsCoolingDown && (Input.GetMouseButtonDown(1)))
         {
-            FireRocket();
+            StartCoroutine(RocketBurst());
             StartCoroutine(StartRocketCoolDown());
         }
     }
@@ -159,12 +163,21 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(rocketCoolDownTime);
         rocketsCoolingDown = false;
     }
+    IEnumerator RocketBurst()
+    {
+        bool offsetPositive = true;
+        for (int i = 0; i < rocketBurstLength; i++)
+        {
+            FireRocket(rocketOffset, offsetPositive);
+            offsetPositive = !offsetPositive;
+            yield return new WaitForSeconds(rocketFireRate); // Small delay between each rocket
+        }
+    }
 
-    IEnumerator FireBurst()
+    IEnumerator GunBurst()
     {
         for (int i = 0; i < gunBurstLength; i++)
         {
-            Debug.Log("Firing");
             FireBullet();
             yield return new WaitForSeconds(gunFireRate); // Small delay between each bullet
         }
@@ -184,12 +197,17 @@ public class PlayerController : MonoBehaviour
         bulletScript.damage = gunBulletDamage;
         bulletScript.SetSpawnerCollider(playerCollider);
     }
-    void FireRocket()
+    void FireRocket(float offsetBy, bool offsetPositive)
     {
         // Calculate the direction based on the player's current rotation
         Vector2 direction = transform.up; // Assuming the player sprite's forward direction is up
 
-        GameObject rocket = Instantiate(rocketPrefab, transform.position, transform.rotation); // Set initial rotation to player's rotation
+        // Calculate the position to instantiate the rocket
+        float offset = offsetPositive ? offsetBy : -offsetBy;
+        Vector3 offsetVector = Quaternion.Euler(0f, 0f, transform.eulerAngles.z) * new Vector3(offset, 0f, 0f);
+        Vector3 rocketPosition = transform.position + offsetVector;
+
+        GameObject rocket = Instantiate(rocketPrefab, rocketPosition, transform.rotation); // Set initial rotation to player's rotation
         Rigidbody2D rocketRb = rocket.GetComponent<Rigidbody2D>();
         rocketRb.velocity = direction * rocketSpeed; // Set rocket velocity directly
 

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 10
   speed: 5
-  maxSpeed: 10
+  maxSpeed: 25
   rotationSpeed: 2
   gunBurstLength: 3
   gunFireRate: 0.3
@@ -116,10 +116,11 @@ MonoBehaviour:
   damageCoolingDown: 0
   rocketBurstLength: 8
   rocketFireRate: 0.1
-  rocketCoolDownTime: 1
+  rocketCoolDownTime: 4
   rocketSpeed: 15
   rocketDestroyAfter: 3
-  rocketDamage: 50
+  rocketDamage: 5
+  rocketOffset: 0.4
   bulletPrefab: {fileID: 3797894098441485052, guid: c7fb01bb3e9926e4ea822c61e5b1dfbb, type: 3}
   rocketPrefab: {fileID: 7510293362300097299, guid: 35bdb571971a40149a77318223a82ae2, type: 3}
 --- !u!50 &4651915056126684567

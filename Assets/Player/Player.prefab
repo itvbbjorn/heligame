@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6521879288637918984}
   - component: {fileID: 4651915056126684567}
   - component: {fileID: 8468899898940786657}
-  - component: {fileID: -3398352008046817131}
+  - component: {fileID: 4410572920519462911}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -101,16 +101,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34958a19c31b19b46aa6f577a1f519b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceForce: 10
   speed: 5
   maxSpeed: 10
   rotationSpeed: 2
-  burstLength: 3
-  fireRate: 0.1
-  gunCoolDown: 1
+  gunBurstLength: 3
+  gunFireRate: 0.3
+  gunCoolDownTime: 1
+  gunBulletSpeed: 10
+  gunBulletDestroyAfter: 3
+  gunBulletDamage: 10
+  terrainDamage: 5
+  damageCoolDownTime: 2
+  damageCoolingDown: 0
+  rocketCoolDownTime: 1
+  rocketSpeed: 15
+  rocketDestroyAfter: 3
+  rocketDamage: 50
   bulletPrefab: {fileID: 3797894098441485052, guid: c7fb01bb3e9926e4ea822c61e5b1dfbb, type: 3}
-  bulletSpeed: 10
-  bulletDestroyAfter: 3
-  bulletDamage: 10
+  rocketPrefab: {fileID: 7510293362300097299, guid: 35bdb571971a40149a77318223a82ae2, type: 3}
 --- !u!50 &4651915056126684567
 Rigidbody2D:
   serializedVersion: 4
@@ -173,7 +182,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.2, y: 1.3}
   m_Direction: 0
---- !u!114 &-3398352008046817131
+--- !u!114 &4410572920519462911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 468487364397040874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9597868690d429d4dac20fd712d87230, type: 3}
+  m_Script: {fileID: 11500000, guid: e5549a9e1cfafbe4693bfee636a32c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10

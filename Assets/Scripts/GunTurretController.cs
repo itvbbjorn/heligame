@@ -10,6 +10,7 @@ public class GunTurretController : MonoBehaviour
     public float bulletDestroyAfter = 3.0f;
     public float fireRate = 0.1f;
     public float delayBetweenBursts = 3.0f;
+    public float shotDirectionVariation = 10.0f;
     public int burstLength = 3;
     public int bulletDamage = 10; // Damage of the bullet
     private Transform playerTransform;
@@ -67,9 +68,20 @@ public class GunTurretController : MonoBehaviour
         if (playerTransform == null) return;
 
         Vector2 direction = (playerTransform.position - transform.position).normalized;
+
+        // Adjust direction by a random angle between -10 and 10 degrees
+        float randomAngle = Random.Range(-shotDirectionVariation, shotDirectionVariation);
+        float radians = randomAngle * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
+        Vector2 adjustedDirection = new Vector2(
+            direction.x * cos - direction.y * sin,
+            direction.x * sin + direction.y * cos
+        );
+
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = direction * bulletSpeed;
+        bulletRb.velocity = adjustedDirection * bulletSpeed;
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.destroyAfter = bulletDestroyAfter;

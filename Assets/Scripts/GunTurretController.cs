@@ -8,6 +8,9 @@ public class GunTurretController : MonoBehaviour
     public float bulletSpeed = 10.0f; // Speed of the bullet
     public float rotationSpeed = 5.0f; // Speed at which the turret rotates
     public float bulletDestroyAfter = 3.0f;
+    public float fireRate = 0.1f;
+    public float delayBetweenBursts = 3.0f;
+    public int burstLength = 3;
     public int bulletDamage = 10; // Damage of the bullet
     private Transform playerTransform;
     private Rigidbody2D rb;
@@ -49,12 +52,12 @@ public class GunTurretController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3.0f); // Wait for 3 seconds
+            yield return new WaitForSeconds(delayBetweenBursts); // Wait for 3 seconds
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < burstLength; i++)
             {
                 FireBullet();
-                yield return new WaitForSeconds(0.1f); // Small delay between each bullet
+                yield return new WaitForSeconds(fireRate); // Small delay between each bullet
             }
         }
     }

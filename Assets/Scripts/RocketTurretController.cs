@@ -31,6 +31,14 @@ public class RocketTurretController : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
+        if (Helpers.CanSeePlayer(transform, playerTransform))
+        {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.green);
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.red);
+        }
     }
 
     void RotateTowardsPlayer()

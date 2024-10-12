@@ -193,12 +193,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 10
   speed: 5
-  maxSpeed: 25
+  maxSpeed: 10
   rotationSpeed: 2
   gunBurstLength: 3
   gunFireRate: 0.3
   gunCoolDownTime: 1
-  gunBulletSpeed: 10
+  gunBulletSpeed: 25
   gunBulletDestroyAfter: 3
   gunBulletDamage: 10
   terrainDamage: 5
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 217987571771038318}
   m_Layer: 7
   m_Name: Rotor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7988654752122155095}
   - component: {fileID: 2918664990667972775}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TailRotor
   m_TagString: Player
   m_Icon: {fileID: 0}

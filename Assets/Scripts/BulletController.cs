@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     public void SetSpawnerCollider(Collider2D collider)
     {
+        bulletCollider = GetComponent<Collider2D>();
         spawnerCollider = collider;
         Physics2D.IgnoreCollision(bulletCollider, spawnerCollider);
     }

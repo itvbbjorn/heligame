@@ -163,4 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   destroyAfter: 3
-  ignoreCollisionsTime: 0.1
+  ignoreCollisionsTime: 0

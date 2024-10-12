@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         bulletRb.velocity = direction * gunBulletSpeed;
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.ignoreCollisionsTime = 0.2f;
         bulletScript.destroyAfter = gunBulletDestroyAfter;
         bulletScript.damage = gunBulletDamage;
         bulletScript.SetSpawnerCollider(playerCollider);

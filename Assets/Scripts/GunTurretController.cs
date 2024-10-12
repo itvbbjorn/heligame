@@ -115,6 +115,7 @@ public class GunTurretController : MonoBehaviour
         bulletRb.velocity = adjustedDirection * bulletSpeed;
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.ignoreCollisionsTime = 0.05f;
         bulletScript.destroyAfter = bulletDestroyAfter;
         bulletScript.damage = bulletDamage;
         bulletScript.SetSpawnerCollider(turretCollider);

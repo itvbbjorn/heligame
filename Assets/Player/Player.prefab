@@ -196,7 +196,7 @@ MonoBehaviour:
   maxSpeed: 10
   rotationSpeed: 2
   gunBurstLength: 3
-  gunFireRate: 0.3
+  gunFireRate: 0.1
   gunCoolDownTime: 1
   gunBulletSpeed: 25
   gunBulletDestroyAfter: 3

@@ -161,4 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5366a3af338aa4ebf4c31a22e3fdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   destroyAfter: 3
+  ignoreCollisionsTime: 0.1

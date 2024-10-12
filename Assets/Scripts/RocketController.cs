@@ -12,7 +12,7 @@ public class RocketController : MonoBehaviour
     private Collider2D spawnerCollider;
     private Rigidbody2D rb;
     private Vector2 startPosition;
-    private float targetDistance;
+    private float targetDistance = 30;
 
     void Start()
     {

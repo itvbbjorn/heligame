@@ -6,6 +6,11 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.3f; // Time for the camera to catch up to the player
     private Vector3 velocity = Vector3.zero; // Current velocity of the camera
 
+    void Start()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void LateUpdate()
     {
         if (playerTransform != null)

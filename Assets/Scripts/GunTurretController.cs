@@ -31,6 +31,14 @@ public class GunTurretController : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
+        if (Helpers.CanSeePlayer(transform, playerTransform))
+        {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.green);
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.red);
+        }
     }
 
     void RotateTowardsPlayer()
@@ -56,17 +64,39 @@ public class GunTurretController : MonoBehaviour
         {
             yield return new WaitForSeconds(delayBetweenBursts); // Wait for 3 seconds
 
-            for (int i = 0; i < burstLength; i++)
+            if (!Helpers.CanSeePlayer(transform, playerTransform))
             {
-                FireBullet();
-                yield return new WaitForSeconds(fireRate); // Small delay between each bullet
+                for (int i = 0; i < burstLength; i++)
+                {
+                    FireBullet();
+                    yield return new WaitForSeconds(fireRate); // Small delay between each bullet
+                }
             }
         }
     }
 
+    //bool CanSeePlayer()
+    //{
+    //    if (playerTransform == null) return false;
+
+    //    Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
+    //    float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+    //    LayerMask layerMask = LayerMask.GetMask("Player", "Terrain", "Default"); 
+
+    //    RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, layerMask);
+
+    //    if (hit.collider != null && hit.collider.CompareTag("Player"))
+    //    {
+    //        return true;
+    //    }
+
+    //    return false;
+    //}
+
     void FireBullet()
     {
         if (playerTransform == null) return;
+
 
         Vector2 direction = (playerTransform.position - transform.position).normalized;
 

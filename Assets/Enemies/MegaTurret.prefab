@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8576968282798633200}
   - component: {fileID: 688288925369080692}
   - component: {fileID: 4654000819443022095}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MegaTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3797894098441485052, guid: c7fb01bb3e9926e4ea822c61e5b1dfbb, type: 3}
+  explosionPrefab: {fileID: 0}
   bulletSpeed: 10
   rotationSpeed: 3
   bulletDestroyAfter: 3
@@ -195,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7638316228895697700}
   - component: {fileID: 567819862373757221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

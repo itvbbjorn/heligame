@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 7510293362300097299, guid: 35bdb571971a40149a77318223a82ae2, type: 3}
+  explosionPrefab: {fileID: 6476358818451626875, guid: b053ad149278b12419d3d52a8522da2f, type: 3}
   rocketSpeed: 10
   rotationSpeed: 5
   rocketDestroyAfter: 3

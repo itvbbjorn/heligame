@@ -78,12 +78,7 @@ public class RocketController : MonoBehaviour
 
     void OnDestroy()
     {
-        // Create an explosion effect when the rocket is destroyed
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
-        ExplosionController explosionController = explosion.GetComponent<ExplosionController>();
-
-        explosionController.damage = splashDamage;
-        explosion.transform.localScale = new Vector3(splashSize, splashSize, 1);
+        //// Create an explosion effect when the rocket is destroyed
+        Helpers.CreateExplosion(explosionPrefab, transform.position, splashDamage, splashSize);
     }
 }

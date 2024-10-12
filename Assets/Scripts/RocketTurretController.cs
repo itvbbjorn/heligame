@@ -5,6 +5,7 @@ using UnityEngine;
 public class RocketTurretController : MonoBehaviour
 {
     public GameObject rocketPrefab; // Prefab for the bullet
+    public GameObject explosionPrefab;
     public float rocketSpeed = 10.0f; // Speed of the bullet
     public float rotationSpeed = 5.0f; // Speed at which the turret rotates
     public float rocketDestroyAfter = 3.0f;
@@ -87,5 +88,10 @@ public class RocketTurretController : MonoBehaviour
         rocketScript.destroyAfter = rocketDestroyAfter;
         rocketScript.damage = rocketDamage;
         rocketScript.SetSpawnerCollider(turretCollider);
+    }
+    private void OnDestroy()
+    {
+        int explosionSize = transform.localScale.x > transform.localScale.y ? (int)transform.localScale.x + 1 : (int)transform.localScale.y + 1;
+        Helpers.CreateExplosion(explosionPrefab, transform.position, 2, explosionSize);
     }
 }

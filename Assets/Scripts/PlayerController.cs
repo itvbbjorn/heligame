@@ -230,14 +230,13 @@ public class PlayerController : MonoBehaviour
 
     void DestroyPlayer()
     {
-        // Instantiate the explosion prefab at the player's position
-        if (explosionPrefab != null)
-        {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, 0.1f); // Destroy the explosion after 0.1 seconds
-        }
 
         // Destroy the player game object
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        int explosionSize = transform.localScale.x > transform.localScale.y ? (int)transform.localScale.x + 1 : (int)transform.localScale.y + 1;
+        Helpers.CreateExplosion(explosionPrefab, transform.position, 2, explosionSize);
     }
 }

@@ -64,7 +64,7 @@ public class GunTurretController : MonoBehaviour
         {
             yield return new WaitForSeconds(delayBetweenBursts); // Wait for 3 seconds
 
-            if (!Helpers.CanSeePlayer(transform, playerTransform))
+            if (Helpers.CanSeePlayer(transform, playerTransform))
             {
                 for (int i = 0; i < burstLength; i++)
                 {

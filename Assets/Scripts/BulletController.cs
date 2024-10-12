@@ -23,8 +23,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Handle collision with other game objects
-        Debug.Log("Bullet collided with " + collision.gameObject.name);
+        //Debug.Log("Bullet collided with " + collision.gameObject.name);
 
         // Reduce health of the unit hit
         var healthComponent = collision.gameObject.GetComponent<Health>();

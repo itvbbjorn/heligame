@@ -4931,8 +4931,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  splashSize: 0
+  splashSize: 2
   destroyAfter: 0
+  explosionPrefab: {fileID: 6476358818451626875, guid: b053ad149278b12419d3d52a8522da2f, type: 3}
 --- !u!50 &722205349792012273
 Rigidbody2D:
   serializedVersion: 4

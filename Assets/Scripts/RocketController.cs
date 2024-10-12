@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 
 public class RocketController : MonoBehaviour
@@ -12,11 +11,14 @@ public class RocketController : MonoBehaviour
     public GameObject explosionPrefab;
     private Collider2D spawnerCollider;
     private Rigidbody2D rb;
+    private Vector2 startPosition;
+    private float targetDistance;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // Destroy the rocket after the specified time
+        startPosition = transform.position;
+        // Destroy the rocket after the specified time if it hasn't traveled the target distance
         Destroy(gameObject, destroyAfter);
     }
 
@@ -32,6 +34,11 @@ public class RocketController : MonoBehaviour
         transform.rotation = rotation;
     }
 
+    public void SetTargetDistance(float distance)
+    {
+        targetDistance = distance;
+    }
+
     void Update()
     {
         // Rotate the rocket to face the direction it is traveling
@@ -40,6 +47,13 @@ public class RocketController : MonoBehaviour
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // Adjust for sprite orientation
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+
+        // Check if the rocket has traveled the target distance
+        float traveledDistance = Vector2.Distance(startPosition, transform.position);
+        if (traveledDistance >= targetDistance)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -61,6 +75,7 @@ public class RocketController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void OnDestroy()
     {
         // Create an explosion effect when the rocket is destroyed

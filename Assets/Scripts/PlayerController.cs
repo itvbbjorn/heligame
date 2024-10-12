@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public float rocketDestroyAfter = 3.0f;
     public int rocketDamage = 50;
     public float rocketOffset = 0.3f;
+    public GameObject explosionPrefab; // Reference to the explosion prefab
     private Rigidbody2D rb;
     private Collider2D playerCollider;
     private PlayerHealth healthComponent;
@@ -77,10 +78,8 @@ public class PlayerController : MonoBehaviour
         // Check if the player's health is zero or less
         if (healthComponent != null && healthComponent.CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            DestroyPlayer();
         }
-
-        
 
         // Fire bullet when spacebar or left mouse button is pressed
         if (!gunCoolingDown && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
@@ -95,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         RotateTowardsMouse();
     }
@@ -123,7 +122,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
         }
     }
-    
+
     void RotateTowardsMouse()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -132,6 +131,7 @@ public class PlayerController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
     }
+
     public IEnumerator DamageCoolDown()
     {
         damageCoolingDown = true;
@@ -151,18 +151,21 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.color = originalColor;
         damageCoolingDown = false;
     }
+
     IEnumerator StartGunCoolDown()
     {
         gunCoolingDown = true;
         yield return new WaitForSeconds(gunCoolDownTime);
         gunCoolingDown = false;
     }
+
     IEnumerator StartRocketCoolDown()
     {
         rocketsCoolingDown = true;
         yield return new WaitForSeconds(rocketCoolDownTime);
         rocketsCoolingDown = false;
     }
+
     IEnumerator RocketBurst()
     {
         bool offsetPositive = true;
@@ -197,6 +200,7 @@ public class PlayerController : MonoBehaviour
         bulletScript.damage = gunBulletDamage;
         bulletScript.SetSpawnerCollider(playerCollider);
     }
+
     void FireRocket(float offsetBy, bool offsetPositive)
     {
         // Calculate the direction based on the player's current rotation
@@ -217,5 +221,23 @@ public class PlayerController : MonoBehaviour
         rocketScript.splashDamage = rocketDamage / 2;
         rocketScript.SetSpawnerCollider(playerCollider);
         rocketScript.SetInitialRotation(transform.rotation); // Set initial rotation to player's rotation
+
+        // Calculate the distance between the player and the mouse pointer
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float targetDistance = Vector2.Distance(transform.position, mousePosition);
+        rocketScript.SetTargetDistance(targetDistance);
+    }
+
+    void DestroyPlayer()
+    {
+        // Instantiate the explosion prefab at the player's position
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.1f); // Destroy the explosion after 0.1 seconds
+        }
+
+        // Destroy the player game object
+        Destroy(gameObject);
     }
 }

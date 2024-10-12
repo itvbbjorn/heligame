@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Terrain
   - Explosion
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Explosion
-  - 
-  - 
+  - Player
+  - Enemies
   - 
   - 
   - 

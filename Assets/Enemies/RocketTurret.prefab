@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 688288925369080692}
   - component: {fileID: 4654000819443022095}
   - component: {fileID: -2143235610037696184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7638316228895697700}
   - component: {fileID: 567819862373757221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

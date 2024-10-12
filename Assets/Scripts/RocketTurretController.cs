@@ -56,10 +56,13 @@ public class RocketTurretController : MonoBehaviour
         {
             yield return new WaitForSeconds(delayBetweenBursts); // Wait for 3 seconds
 
-            for (int i = 0; i < burstLength; i++)
+            if (Helpers.CanSeePlayer(transform, playerTransform))
             {
-                FireRocket();
-                yield return new WaitForSeconds(fireRate); // Small delay between each bullet
+                for (int i = 0; i < burstLength; i++)
+                {
+                    FireRocket();
+                    yield return new WaitForSeconds(fireRate); // Small delay between each bullet
+                }
             }
         }
     }

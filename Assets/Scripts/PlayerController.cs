@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
         RocketController rocketScript = rocket.GetComponent<RocketController>();
         rocketScript.destroyAfter = rocketDestroyAfter;
         rocketScript.damage = rocketDamage;
+        rocketScript.splashDamage = rocketDamage / 2;
         rocketScript.SetSpawnerCollider(playerCollider);
         rocketScript.SetInitialRotation(transform.rotation); // Set initial rotation to player's rotation
     }

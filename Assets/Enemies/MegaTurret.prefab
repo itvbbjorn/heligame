@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1253186891311630078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -37.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 48.925
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172918720217886190, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534774916511753166, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_Name
+      value: MegaTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654000819443022095, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: maxHealth
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326859009659987611, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.05960811
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326859009659987611, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326859009659987611, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.056368813
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576968282798633200, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: bulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576968282798633200, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: burstLength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576968282798633200, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: bulletDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576968282798633200, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: rotationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576968282798633200, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}
+      propertyPath: delayBetweenBursts
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ac8d3ce462b1e14097ae235c01f374c, type: 3}

@@ -135,7 +135,7 @@ MonoBehaviour:
   bulletDestroyAfter: 10
   fireRate: 0.1
   delayBetweenBursts: 5
-  shotDirectionVariation: 1000
+  shotDirectionVariation: 100
   burstLength: 30
   bulletDamage: 2
 --- !u!58 &688288925369080692

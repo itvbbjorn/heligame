@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1950739357312629416}
   - component: {fileID: -6802008563571075312}
   m_Layer: 0
-  m_Name: BulletPrefab
+  m_Name: dIRTBALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.32, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2165e7bf33605964c9c9fd308008998f, type: 3}
-  m_Color: {r: 0.94716984, g: 0.9389211, b: 0.92751163, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e8fc866461af16d4587d089adf85dcf2, type: 3}
+  m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
